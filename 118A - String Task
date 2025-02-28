@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    string s;
+    cin >> s;
+
+    string newString;
+    unordered_set<char> vowels;
+    vowels.insert('A');
+    vowels.insert('E');
+    vowels.insert('I');
+    vowels.insert('O');
+    vowels.insert('U');
+    vowels.insert('Y');
+
+
+    for (char c : s) {
+        if (vowels.count(c) == 0 && vowels.count(toupper(c)) == 0) {
+            newString += '.';
+            if (isupper(c)) {
+                newString += char(tolower(c));
+            }else {
+                newString += char(c);
+            }
+        }
+    }
+
+    cout << newString;
+
+    return 0;
+}
